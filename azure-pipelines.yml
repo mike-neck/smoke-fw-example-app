@@ -10,3 +10,4 @@ container: ubuntu-build-container
 
 steps:
   - script: swift build --configuration release --product ExampleResponseApp
+    displayName: building application
