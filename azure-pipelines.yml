@@ -1,0 +1,12 @@
+resources:
+  containers:
+  - container: ubuntu-build-container
+    image: swift:4.2.1
+
+pool:
+  vmImage: 'ubuntu-16.04'
+
+container: ubuntu-build-container
+
+steps:
+  - script: swift build --configuration release --product ExampleResponseApp
