@@ -11,6 +11,6 @@ container: ubuntu-build-container
 steps:
   - script: swift build --configuration release --product ExampleResponseApp
     displayName: building application
-  - task: build-artifacts
+  - task: build-artifacts@0
     inputs:
       targetPath: .build/release/ExampleResponseApp
