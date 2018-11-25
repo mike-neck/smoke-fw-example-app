@@ -11,6 +11,8 @@ container: ubuntu-build-container
 steps:
   - script: swift build --configuration release --product ExampleResponseApp
     displayName: building application
+  - script: pwd
+    displayName: show current directory
   - task: PublishPipelineArtifact@0
     inputs:
       targetPath: '.build/release/ExampleResponseApp'
