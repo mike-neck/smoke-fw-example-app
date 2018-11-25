@@ -9,14 +9,18 @@ pool:
 container: ubuntu-build-container
 
 steps:
-  - script: swift build --configuration release --product ExampleResponseApp
-    displayName: building application
-  - script: pwd
-    displayName: show current directory
-  - script: env
-    displayName: show environment
-  - task: CopyFiles@2
-    inputs:
-      targetFolder: $(Build.ArtifactStagingDirectory)
-      sourceFolder: '.build/release'
-      contents: 'ExampleResponseApp'
+- script: swift build --configuration release --product ExampleResponseApp
+  displayName: building application
+- script: pwd
+  displayName: show current directory
+- script: env
+  displayName: show environment
+- task: CopyFiles@2
+  inputs:
+    targetFolder: $(Build.ArtifactStagingDirectory)
+    sourceFolder: '.build/release'
+    contents: 'ExampleResponseApp'
+- task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'ExampleResponseApp'
+    targetPath: $(Build.ArtifactStagingDirectory)
