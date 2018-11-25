@@ -11,15 +11,13 @@ container: ubuntu-build-container
 steps:
 - script: swift build --configuration release --product ExampleResponseApp
   displayName: building application
-- script: pwd
-  displayName: show current directory
-- script: env
-  displayName: show environment
 - task: CopyFiles@2
   inputs:
     targetFolder: $(Build.ArtifactStagingDirectory)
     sourceFolder: '.build/release'
     contents: 'ExampleResponseApp'
+- script: ls -l  $(Build.ArtifactStagingDirectory)
+  displayName: show contents in $(Build.ArtifactStagingDirectory)
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'ExampleResponseApp'
