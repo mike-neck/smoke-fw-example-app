@@ -18,5 +18,5 @@ steps:
   - task: CopyFiles@2
     inputs:
       targetFolder: $(Build.ArtifactStagingDirectory)
-      sourceFolder: './build/release'
+      sourceFolder: '.build/release'
       contents: 'ExampleResponseApp'
