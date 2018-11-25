@@ -18,7 +18,11 @@ steps:
     contents: 'ExampleResponseApp'
 - script: ls -l  $(Build.ArtifactStagingDirectory)
   displayName: show contents in $(Build.ArtifactStagingDirectory)
-- task: PublishPipelineArtifact@0
+#- task: PublishPipelineArtifact@0
+#  inputs:
+#    artifactName: 'ExampleResponseApp'
+#    targetPath: $(Build.ArtifactStagingDirectory)
+- task: PublishBuildArtifacts@1
   inputs:
-    artifactName: 'ExampleResponseApp'
-    targetPath: $(Build.ArtifactStagingDirectory)
+    artifactName: publish-artifact
+    pathtoPublish: $(Build.ArtifactStagingDirectory)
