@@ -13,4 +13,4 @@ steps:
     displayName: building application
   - task: PublishPipelineArtifact@0
     inputs:
-      targetPath: .build/release/ExampleResponseApp
+      targetPath: '.build/release/ExampleResponseApp'
