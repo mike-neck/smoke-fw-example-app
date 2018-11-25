@@ -13,6 +13,8 @@ steps:
     displayName: building application
   - script: pwd
     displayName: show current directory
+  - script: env
+    displayName: show environment
   - task: PublishPipelineArtifact@0
     inputs:
       targetPath: '.build/release/ExampleResponseApp'
